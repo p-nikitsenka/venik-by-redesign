@@ -95,6 +95,7 @@
 <div class="sticky"><button class="btn lime wide" data-open data-topic="Расчёт с мобильной версии">Получить расчёт</button></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true"><div class="backdrop" data-close></div><div class="panel"><button class="close" aria-label="Закрыть" data-close>×</button><h2>Получить расчёт и коммерческое предложение</h2><p class="sub">Оставьте данные об объекте. Расчёт из калькулятора подставится автоматически.</p><form id="lead-form"><input type="hidden" id="topic" name="topic"><input type="hidden" id="calculation" name="calculation"><div class="formgrid">
+<div class="field" style="position:absolute;left:-9999px" aria-hidden="true"><label for="website">Сайт</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
 <div class="field"><label for="company">Организация</label><input id="company" name="company" autocomplete="organization"></div>
 <div class="field"><label for="contact">Контактное лицо *</label><input id="contact" name="contact" required></div>
 <div class="field"><label for="phone">Телефон *</label><input id="phone" name="phone" type="tel" required placeholder="+375 …"></div>
@@ -102,5 +103,5 @@
 <div class="field"><label for="lead-area">Площадь, га</label><input id="lead-area" name="area" type="number" min=".1" step=".1"></div>
 <div class="field"><label for="object-type">Тип объекта</label><input id="object-type" name="object_type" placeholder="Например, полоса отвода"></div>
 <div class="field full"><label for="comment">Комментарий</label><textarea id="comment" name="comment"></textarea></div>
-</div><label class="consent"><input type="checkbox" required><span>Я согласен на использование указанных данных для обработки запроса и обратной связи.</span></label><button class="btn primary wide" type="submit">Подготовить заявку</button><div class="status" id="status" role="status"></div><p class="devnote">До подключения корпоративной почты или CRM форма подготавливает текст заявки и копирует его в буфер обмена.</p></form></div></div>
+</div><label class="consent"><input type="checkbox" required><span>Я согласен на использование указанных данных для обработки запроса и обратной связи.</span></label><button class="btn primary wide" type="submit">Отправить заявку</button><div class="status" id="status" role="status"></div><p class="devnote">Заявка поступает менеджеру мгновенно. Ответим в рабочее время.</p></form></div></div>
 </body></html>

@@ -59,6 +59,8 @@
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
+
     const lines = [
       'Заявка с сайта ВЕНИК, ВДГ',
       `Тема: ${data.get('topic') || ''}`,
@@ -71,13 +73,30 @@
       `Расчёт: ${data.get('calculation') || ''}`,
       `Комментарий: ${data.get('comment') || ''}`
     ];
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+    status.textContent = 'Отправляем заявку…';
+    status.classList.add('show');
+
     try {
-      await navigator.clipboard.writeText(lines.join('\n'));
-      status.textContent = 'Заявка скопирована. Позвоните нам или отправьте её удобным способом.';
-      status.classList.add('show');
+      const response = await fetch('https://api.borshevik.by/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) throw new Error('server');
+      status.textContent = 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+      form.reset();
     } catch {
-      status.textContent = 'Заявка подготовлена. Позвоните по номеру +375 29 656-52-52.';
-      status.classList.add('show');
+      try {
+        await navigator.clipboard.writeText(lines.join('\n'));
+        status.textContent = 'Не удалось отправить автоматически. Заявка скопирована в буфер — отправьте её нам или позвоните +375 29 656-52-52.';
+      } catch {
+        status.textContent = 'Не удалось отправить. Позвоните по номеру +375 29 656-52-52.';
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 
