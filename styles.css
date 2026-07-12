@@ -152,6 +152,7 @@ footer strong,footer a{color:#eef0eb}
 .photo.dark{border-color:rgba(255,255,255,.12);background:#20231e}
 .photo.dark figcaption{color:#adb2aa}
 .beforeafter{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.footlogo{display:block;width:200px;height:auto;margin-bottom:16px}
 @media(max-width:980px){
  .links{display:none}.hero-grid{grid-template-columns:1fr .82fr;gap:28px}.product-stage{min-height:500px}
  .trustbar{grid-template-columns:1fr 1fr}.audience{grid-template-columns:repeat(3,1fr)}
@@ -174,6 +175,7 @@ footer strong,footer a{color:#eef0eb}
  .foot{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}
  .sticky{display:block}footer{padding-bottom:105px}
  .beforeafter{grid-template-columns:1fr}
+ .footlogo{width:170px}
 }
 @media(max-width:380px){
  h1{font-size:33px}
