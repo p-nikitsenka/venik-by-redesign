@@ -86,7 +86,19 @@
         body: JSON.stringify(payload)
       });
       if (!response.ok) throw new Error('server');
+      const result = await response.json();
       status.textContent = 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+      if (result.tg) {
+        const tgLink = document.createElement('a');
+        tgLink.href = result.tg;
+        tgLink.target = '_blank';
+        tgLink.rel = 'noopener';
+        tgLink.className = 'btn primary wide';
+        tgLink.style.marginTop = '10px';
+        tgLink.textContent = 'Продолжить в Telegram — быстрый ответ';
+        status.appendChild(document.createElement('br'));
+        status.appendChild(tgLink);
+      }
       form.reset();
     } catch {
       try {
