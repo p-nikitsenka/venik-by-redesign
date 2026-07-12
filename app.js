@@ -38,7 +38,7 @@
     if (!modal) return;
     if (topic) topic.value = button?.dataset.topic || 'Заявка с сайта';
     calculate();
-    modal.classList.add('show');
+    modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('lock');
     setTimeout(() => document.querySelector('#contact')?.focus(), 50);
@@ -46,7 +46,7 @@
 
   function closeModal() {
     if (!modal) return;
-    modal.classList.remove('show');
+    modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('lock');
   }
@@ -74,8 +74,10 @@
     try {
       await navigator.clipboard.writeText(lines.join('\n'));
       status.textContent = 'Заявка скопирована. Позвоните нам или отправьте её удобным способом.';
+      status.classList.add('show');
     } catch {
       status.textContent = 'Заявка подготовлена. Позвоните по номеру +375 29 656-52-52.';
+      status.classList.add('show');
     }
   });
 
