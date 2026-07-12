@@ -14,8 +14,10 @@ a{color:inherit}button,input,textarea{font:inherit}
 .top a{text-decoration:none;font-weight:800}
 .nav{position:sticky;top:0;z-index:30;background:rgba(245,246,241,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(17,19,16,.08)}
 .nav .wrap{min-height:68px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:900;letter-spacing:-.02em}
-.brandmark{width:38px;height:38px;border-radius:12px;background:var(--graphite);color:var(--lime);display:grid;place-items:center;font:700 17px 'IBM Plex Mono'}
+.brand{display:flex;align-items:center;text-decoration:none;font-weight:900;letter-spacing:-.02em}
+.brandbar{width:6px;height:38px;border-radius:3px;background:var(--lime);flex:0 0 6px;margin-right:16px}
+.brandname{font-size:34px;font-weight:900;letter-spacing:-.02em;line-height:1}
+.brandwdg{font:600 13px 'IBM Plex Mono';color:var(--muted);letter-spacing:.08em;text-transform:uppercase;align-self:flex-start;margin-top:4px;margin-left:10px}
 .links{display:flex;gap:22px;font-size:14px;color:#52574f}
 .links a{text-decoration:none}
 .links a:hover{color:#111}
@@ -157,6 +159,7 @@ footer strong,footer a{color:#eef0eb}
 }
 @media(max-width:720px){
  .wrap{width:calc(100% - 28px)}.top{display:none}.nav .wrap{min-height:60px}.navbtn{display:none}
+ .brandbar{width:5px;height:32px;margin-right:14px}.brandname{font-size:28px}.brandwdg{font-size:12px;margin-top:3px;margin-left:9px}
  .hero{padding:42px 0 34px}.hero-grid{grid-template-columns:1fr}.hero-grid>div{min-width:0}.actions .btn{width:100%}
  h1{font-size:clamp(34px,9vw,38px);line-height:1.05;letter-spacing:-.04em;max-width:100%;overflow-wrap:normal;word-break:normal}
  .lead{font-size:17px;line-height:1.5}
