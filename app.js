@@ -112,5 +112,18 @@
     }
   });
 
+  const menu = document.querySelector('#menu');
+  const burger = document.querySelector('#burger');
+  burger?.addEventListener('click', () => menu?.classList.add('open'));
+  menu?.querySelectorAll('[data-menuclose]').forEach(el =>
+    el.addEventListener('click', () => menu.classList.remove('open')));
+
+  const totop = document.querySelector('#totop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) totop?.classList.add('show');
+    else totop?.classList.remove('show');
+  });
+  totop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
   calculate();
 })();
