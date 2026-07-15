@@ -125,5 +125,23 @@
   });
   totop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+  const tlvideo = document.querySelector('.tlvideo');
+  if (tlvideo && 'IntersectionObserver' in window) {
+    const vio = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const v = entry.target;
+        if (!v.src && v.dataset.src) {
+          v.src = v.dataset.src;
+          v.play().catch(() => {});
+        }
+        vio.unobserve(v);
+      });
+    }, { rootMargin: '400px' });
+    vio.observe(tlvideo);
+  } else if (tlvideo && tlvideo.dataset.src) {
+    tlvideo.src = tlvideo.dataset.src;
+  }
+
   calculate();
 })();
