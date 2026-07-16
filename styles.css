@@ -185,6 +185,7 @@ footer strong,footer a{color:#eef0eb}
 .area input:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
 a:focus-visible,button:focus-visible,summary:focus-visible,input[type=checkbox]:focus-visible{outline:2px solid var(--lime-dark);outline-offset:2px}
 .calc a:focus-visible,.calc button:focus-visible,.solution a:focus-visible,.solution button:focus-visible,.menu-panel a:focus-visible,footer a:focus-visible{outline-color:var(--lime)}
+.lawnote{margin-top:26px;padding:4px 0 4px 18px;border-left:3px solid var(--lime);font-size:14.5px;color:var(--muted);max-width:68ch}
 @media(max-width:980px){
  .links{display:none}.hero-grid{grid-template-columns:1fr .82fr;gap:28px}.product-stage{min-height:500px}
  .trustbar{grid-template-columns:1fr 1fr}.audience{grid-template-columns:1fr 1fr}
