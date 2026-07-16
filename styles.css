@@ -1,6 +1,6 @@
 :root{
   --bg:#f5f6f1;--surface:#fff;--ink:#111310;--muted:#62675f;--line:#dde0d8;
-  --lime:#b8d700;--lime-dark:#91a900;--graphite:#151714;--soft:#edf0e8;
+  --lime:#b8d700;--lime-dark:#5c6a00;--graphite:#151714;--soft:#e4e8dc;
   --radius:22px;--shadow:0 24px 70px rgba(25,28,20,.12)
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -56,7 +56,7 @@ h2{font-size:clamp(30px,4.3vw,46px);line-height:1.12;letter-spacing:-.025em;font
 section{padding:78px 0}
 .white{background:#fff}
 .soft{background:var(--soft)}
-.label{color:#7a8d00;margin-bottom:14px}
+.label{color:var(--lime-dark);margin-bottom:14px}
 .sub{font-size:17px;color:var(--muted);max-width:68ch;margin-bottom:36px}
 .audience{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .aud{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px}
@@ -64,7 +64,7 @@ section{padding:78px 0}
 .aud strong{font-size:15px;line-height:1.3}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 25px}
-.card .num{font:700 13px 'IBM Plex Mono';color:#819500}
+.card .num{font:700 13px 'IBM Plex Mono';color:var(--lime-dark)}
 .card h3{font-size:21px;margin:18px 0 9px}
 .card p,.step p,.buy-step p{font-size:14.5px;color:var(--muted)}
 .solution{background:var(--graphite);color:#fff;border-radius:28px;padding:44px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;box-shadow:var(--shadow)}
