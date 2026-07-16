@@ -4,8 +4,8 @@
   --radius:22px;--shadow:0 24px 70px rgba(25,28,20,.12)
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:76px;max-width:100%;overflow-x:hidden}
-body{font-family:'Golos Text',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;max-width:100%;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:76px;max-width:100%}
+body{font-family:'Golos Text',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;max-width:100%}
 body.lock{overflow:hidden}
 a{color:inherit}button,input,textarea{font:inherit}
 .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
