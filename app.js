@@ -123,7 +123,10 @@
     if (window.scrollY > 400) totop?.classList.add('show');
     else totop?.classList.remove('show');
   });
-  totop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  totop?.addEventListener('click', () => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
 
   const tlvideo = document.querySelector('.tlvideo');
   if (tlvideo && 'IntersectionObserver' in window) {
