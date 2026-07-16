@@ -155,8 +155,9 @@ footer strong,footer a{color:#eef0eb}
 .foottop{text-align:center;padding-bottom:26px;margin-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1)}
 .footlogo{display:block;width:190px;height:auto;margin:0 auto 10px}
 .foottag{color:#777d75;font-size:12.5px;max-width:60ch;margin:0 auto}
-.navtools{display:none;align-items:center;gap:6px}
-.iconbtn{width:44px;height:44px;border:0;background:transparent;border-radius:12px;display:grid;place-items:center;color:var(--ink)}
+.navtools{display:flex;align-items:center;gap:6px}
+#burger{display:none}
+.iconbtn{width:42px;height:42px;border:0;background:transparent;border-radius:12px;display:grid;place-items:center;color:var(--ink)}
 .iconbtn:active{background:rgba(17,19,16,.06)}
 .iconbtn svg{width:23px;height:23px}
 .menu{position:fixed;inset:0;z-index:60;display:none}
@@ -187,13 +188,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input[type=checkbox]:
 .calc a:focus-visible,.calc button:focus-visible,.solution a:focus-visible,.solution button:focus-visible,.menu-panel a:focus-visible,footer a:focus-visible{outline-color:var(--lime)}
 .lawnote{margin-top:26px;padding:4px 0 4px 18px;border-left:3px solid var(--lime);font-size:14.5px;color:var(--muted);max-width:68ch}
 @media(max-width:980px){
- .links{display:none}.hero-grid{grid-template-columns:1fr .82fr;gap:28px}.product-stage{min-height:500px}
+ .links{display:none}#burger{display:grid}.hero-grid{grid-template-columns:1fr .82fr;gap:28px}.product-stage{min-height:500px}
  .trustbar{grid-template-columns:1fr 1fr}.audience{grid-template-columns:1fr 1fr}
  .solution,.registry,.calcbox{grid-template-columns:1fr}.buy{grid-template-columns:1fr 1fr}
 }
 @media(max-width:720px){
  .wrap{width:calc(100% - 28px)}.top{display:none}.nav .wrap{min-height:60px}.navbtn{display:none}
- .navtools{display:flex;gap:2px}
+ .navtools{gap:2px}.mailbtn{display:none}.iconbtn{width:44px;height:44px}
  .brandbar{width:5px;height:32px;margin-right:14px}.brandname{font-size:28px}.brandwdg{font-size:12px;margin-top:3px;margin-left:9px}
  .hero{padding:42px 0 34px}.hero-grid{grid-template-columns:1fr}.hero-grid>div{min-width:0}.actions .btn{width:100%}
  h1{font-size:30px;line-height:1.1;letter-spacing:-.03em;max-width:100%;overflow-wrap:normal;word-break:normal}
