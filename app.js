@@ -1,4 +1,7 @@
 (() => {
+  const COUNTER = 110938181;
+  const goal = (name) => { if (typeof ym !== 'undefined') ym(COUNTER, 'reachGoal', name); };
+
   const RATE = 0.35;
   const PACK = 0.5;
   const PRICE = 590;
@@ -13,6 +16,7 @@
   const leadArea = document.querySelector('#lead-area');
   const form = document.querySelector('#lead-form');
   const status = document.querySelector('#status');
+  let calcResultSent = false;
 
   const format = (value, digits = 0) => new Intl.NumberFormat('ru-BY', {
     maximumFractionDigits: digits,
@@ -32,6 +36,7 @@
     if (orderBtn) orderBtn.textContent = `Получить счёт на ${packs} ${packs === 1 ? 'флакон' : packs < 5 ? 'флакона' : 'флаконов'}`;
     if (calculation) calculation.value = `${area} га; ${roundedKg} кг; ${packs} фл.; ${total} BYN без НДС`;
     if (leadArea && document.activeElement !== leadArea) leadArea.value = area || '';
+    if (!calcResultSent && area > 0) { calcResultSent = true; goal('CALC_RESULT'); }
   }
 
   function openModal(button) {
@@ -53,6 +58,11 @@
 
   document.querySelectorAll('[data-open]').forEach(btn => btn.addEventListener('click', () => openModal(btn)));
   document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', closeModal));
+  orderBtn?.addEventListener('click', () => goal('CALC_USE'));
+  document.querySelectorAll('a[href^="tel:"]').forEach(a =>
+    a.addEventListener('click', () => goal('PHONE_CLICK')));
+  document.querySelectorAll('a[href*="t.me/"]:not(.tg-after)').forEach(a =>
+    a.addEventListener('click', () => goal('TG_CLICK')));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   areaInput?.addEventListener('input', calculate);
 
@@ -88,14 +98,16 @@
       if (!response.ok) throw new Error('server');
       const result = await response.json();
       status.textContent = 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+      goal('ZAYAVKA');
       if (result.tg) {
         const tgLink = document.createElement('a');
         tgLink.href = result.tg;
         tgLink.target = '_blank';
         tgLink.rel = 'noopener';
-        tgLink.className = 'btn primary wide';
+        tgLink.className = 'btn primary wide tg-after';
         tgLink.style.marginTop = '10px';
         tgLink.textContent = 'Продолжить в Telegram — быстрый ответ';
+        tgLink.addEventListener('click', () => goal('TG_AFTER_ZAYAVKA'));
         status.appendChild(document.createElement('br'));
         status.appendChild(tgLink);
       }
