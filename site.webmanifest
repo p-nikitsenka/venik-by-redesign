@@ -1,0 +1,11 @@
+{
+  "name": "ВЕНИК, ВДГ",
+  "short_name": "ВЕНИК",
+  "icons": [
+    { "src": "assets/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "assets/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "theme_color": "#b8d700",
+  "background_color": "#f5f6f1",
+  "display": "standalone"
+}
