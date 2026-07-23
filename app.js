@@ -2,6 +2,20 @@
   const COUNTER = 110938181;
   const goal = (name) => { if (typeof ym !== 'undefined') ym(COUNTER, 'reachGoal', name); };
 
+  // UTM: читаем из URL, запоминаем на сессию, раскладываем в скрытые поля
+  (function initUTM() {
+    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    const params = new URLSearchParams(window.location.search);
+    keys.forEach(k => {
+      const fromUrl = params.get(k);
+      if (fromUrl) { try { sessionStorage.setItem(k, fromUrl); } catch (e) {} }
+      let stored = null;
+      try { stored = sessionStorage.getItem(k); } catch (e) {}
+      const field = document.getElementById(k);
+      if (field && stored) field.value = stored;
+    });
+  })();
+
   const RATE = 0.35;
   const PACK = 0.5;
   const PRICE = 590;
